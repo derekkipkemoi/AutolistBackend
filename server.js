@@ -11,7 +11,7 @@ const connection = require("./database/db.js")
 const myEnv = require("dotenv").config();
 require("dotenv").config();
 
-console.log("server logging envirnment",myEnv);
+// console.log("server logging envirnment",myEnv);
 
 
 Promise = global.Promise;

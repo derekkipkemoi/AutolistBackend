@@ -1,4 +1,4 @@
-const express = require("express");
+const upload = require("../middleware/upload");
 //const router = express.Router();
 const router = require("express-promise-router")();
 
@@ -59,7 +59,7 @@ router
   );
 
   //updateuser profile picture
-  router.route("/:userId/updateUserImage").post(validateParam(schemas.idSchema,"userId"),
+  router.route("/:userId/updateUserImage").post(validateParam(schemas.idSchema,"userId"), upload.single("photos"),
   UsersController.updateUserImage)
 
   //request password reset link

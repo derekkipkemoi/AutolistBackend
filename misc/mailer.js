@@ -3,7 +3,7 @@ const nodemailer = require('nodemailer')
 
 require("dotenv").config();
 
-console.log("Mailer variables",process.env.MAILGUN_PASS)
+// console.log("Mailer variables",process.env.MAILGUN_PASS)
 
 const transport = nodemailer.createTransport({
             service: "mailgun",
