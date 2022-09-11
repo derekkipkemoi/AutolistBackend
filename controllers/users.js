@@ -484,40 +484,15 @@ module.exports = {
     },
 
     updateUserImage: async (req, res, next) => {
-        if (!req.files) {
+        if (!req.file) {
             res.send({ status: false, message: "No file uploaded" });
         } else {
             const { userId } = req.value.params;
             var userObject = await User.findById(userId);
             const url = process.env.FILES_URI;
-            // for (let x = 0; x < req.files.length; x++) {
-            //     carObject.images.push(image);
-            // }
-
-            //return response
-            // await carObject.save();
-            // const message = "Car Details and Images uploaded successfuly";
-            // res.status(200).json({ carObject, message });
 
             let imageUrl = url + req.file.filename;
-
-            console.log("Image url", imageUrl)
-
-            //loop all files
-            // if (req.files.photos instanceof Array) {
-            //   _.forEach(_.keysIn(req.files.photos), (key) => {
-            //     const photo = req.files.photos[key];
-            //     const currentPhoto = Date.now() + photo.name.replace(/\s/g, '')
-            //     photo.mv("./uploads/" + currentPhoto);
-            //     imageUrl = url + "/uploads/" + currentPhoto;
-            //   });
-            // } else {
-            //   const photo = req.files[Object.keys(req.files)[0]];
-            //   const currentPhoto = Date.now() + photo.name;
-            //   photo.mv("./uploads/" + currentPhoto);
-            //   imageUrl = url + "/uploads/" + currentPhoto;
-
-            // }
+            console.log("Image url", imageUrl);
 
             if (userObject.method == "facebook") {
                 await User.updateOne(
