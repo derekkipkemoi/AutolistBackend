@@ -501,6 +501,8 @@ module.exports = {
 
             let imageUrl = url + req.file.filename;
 
+            console.log("Image url", imageUrl)
+
             //loop all files
             // if (req.files.photos instanceof Array) {
             //   _.forEach(_.keysIn(req.files.photos), (key) => {
